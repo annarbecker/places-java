@@ -23,4 +23,25 @@ public class AppTest extends FluentTest {
       goTo("http://localhost:4567/");
       assertThat(pageSource()).contains("Enter a place");
   }
+
+  @Test
+  public void createPlace() {
+    goTo("http://localhost:4567/");
+    fill("#city").with("Rome");
+    fill("#country").with("Italy");
+    submit(".btn");
+    assertThat(pageSource()).contains("Rome", "Italy");
+  }
+
+  @Test
+  public void displaysMultiplePlaces() {
+    goTo("http://localhost:4567/");
+    fill("#city").with("Rome");
+    fill("#country").with("Italy");
+    submit(".btn");
+    fill("#city").with("Paris");
+    fill("#country").with("France");
+    submit(".btn");
+    assertThat(pageSource()).contains("Rome", "Italy", "Paris", "France");
+  }
 }

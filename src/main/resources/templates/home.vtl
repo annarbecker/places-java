@@ -1,4 +1,9 @@
 <h2>Places You've Been</h2>
+<ul>
+#foreach ($place in $places)
+  <li>$place.getCity(), $place.getCountry()</li>
+#end
+</ul>
 <hr>
 <p>Enter a place you've been</p>
 <form action="/places" method="post">
@@ -6,5 +11,5 @@
   <input type="text" name="city" id="city" required>
   <label for="country">Country</label>
   <input type="text" name="country" id="country">
-  <button type="submit" class="btn btn-info"></button>
+  <button type="submit" class="btn btn-info">Add Place</button>
 </form>
