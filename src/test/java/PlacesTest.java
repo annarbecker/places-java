@@ -14,4 +14,10 @@ public class PlacesTest {
     Places myPlaces = new Places ("Paris", "France");
     assertEquals("Paris", myPlaces.getCity());
   }
+
+  @Test
+  public void Places_instantiatesWithCountry_true() {
+    Places myPlaces = new Places ("Paris", "France");
+    assertEquals("France", myPlaces.getCountry());
+  }
 }
